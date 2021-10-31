@@ -1,0 +1,16 @@
+schema: pages/api/schemas/*.graphql
+generates:
+  pages/api/types/schema.ts:
+    plugins:
+      - typescript
+      - add:
+          content: |
+            /* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/array-type */
+            // THIS FILE IS AUTO-GENERATED, DO NOT EDIT MANUALLY!
+            // To update the contents of this file run: `npm run generate-schema-types`
+    config:
+      enumsAsTypes: true
+      contextType: ./index#GraphQlContext
+      commentDescriptions: true
+      scalars:
+        Date: luxon#DateTime
